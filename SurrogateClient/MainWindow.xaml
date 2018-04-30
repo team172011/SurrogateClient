@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurrogateClient"
+        xmlns:OpenTok="clr-namespace:OpenTok;assembly=WPFVideoRenderer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Surrogate Client" Height="960" Width="640">
     <Grid>
-        
+        <OpenTok:VideoRenderer x:Name="PublisherVideo" HorizontalAlignment="Center" Height="480" VerticalAlignment="Top" Width="640">
+        </OpenTok:VideoRenderer>
+        <OpenTok:VideoRenderer x:Name="SubscriberVideo" HorizontalAlignment="Center" Height="480" VerticalAlignment="Bottom" Width="640">
+        </OpenTok:VideoRenderer>
     </Grid>
 </Window>
