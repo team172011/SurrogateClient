@@ -21,7 +21,7 @@ namespace SurrogateClient
         public MainWindow()
         {
             InitializeComponent();
-            _publisher = new Publisher(Context.Instance, renderer: PublisherVideo);
+            _publisher = new Publisher(Context.Instance, renderer: PublisherVideo, name: "drmueller");
 
             JObject creds = getCredentials();
             System.Diagnostics.Debug.WriteLine(String.Format("Connecting to server with: {0} {1} {2}",creds.GetValue("apiKey").ToString(), creds.GetValue("sessionId").ToString(), creds.GetValue("token").ToString()));
@@ -33,8 +33,6 @@ namespace SurrogateClient
             _session.StreamReceived += Session_StreamReceived;
 
             _session.Connect(creds.GetValue("token").ToString());
-
-            
         }
 
 
