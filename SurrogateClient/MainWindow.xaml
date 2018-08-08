@@ -6,11 +6,32 @@
         xmlns:local="clr-namespace:SurrogateClient"
         xmlns:OpenTok="clr-namespace:OpenTok;assembly=WPFVideoRenderer"
         mc:Ignorable="d"
-        Title="Surrogate Client" Height="960" Width="640">
+        Title="Surrogate Client">
+  <DockPanel>
+    <!-- Publisher and Renderer Frames -->
     <Grid>
-        <OpenTok:VideoRenderer x:Name="PublisherVideo" HorizontalAlignment="Center" Height="480" VerticalAlignment="Top" Width="640">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
+        <OpenTok:VideoRenderer  VerticalAlignment="Top" x:Name="SubscriberVideo"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"  Height="500" Width="500">
         </OpenTok:VideoRenderer>
-        <OpenTok:VideoRenderer x:Name="SubscriberVideo" HorizontalAlignment="Center" Height="480" VerticalAlignment="Bottom" Width="640">
+
+      <Border Grid.Column="1" Grid.Row="0" CornerRadius="5" BorderBrush="Black" BorderThickness="4" Height="200" Width="200" VerticalAlignment="Top" HorizontalAlignment="Right">
+        <OpenTok:VideoRenderer Grid.Column="1" Grid.Row="0" x:Name="PublisherVideo" Height="200" Width="200" >
         </OpenTok:VideoRenderer>
+      </Border>
+
+      <!-- Button hang up -->
+      <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+        <Button Background="Green" Content="Mit Surrogate verbinden" Click="ConnectClicked"/>
+        <Button Background="OrangeRed" Content="Verbindung trennen" Click="DisconnectClicked"/>
+      </StackPanel>
     </Grid>
+  </DockPanel>
 </Window>
+
